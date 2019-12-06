@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "../App.css"
 export default class Alunos extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ export default class Alunos extends React.Component {
             polo: "Alemão"
         },
         {
-            nome: "Geyza",
+            nome: "Geysa",
             idade: 20,
             polo: "Prazeres"
         },
@@ -42,7 +42,7 @@ export default class Alunos extends React.Component {
             polo: "Alemão"
         },
         {
-            nome: "Claiton",
+            nome: "Cleiton",
             idade: 19,
             polo: "Alemão"
         },
@@ -95,18 +95,23 @@ export default class Alunos extends React.Component {
     } 
   }
 
-  deBobeira= () => {
-    this.state.alunos.map(callback => {
-        console.log(callback.nome, callback.idade, callback.polo)
-        return null
-    })
-  }
+//   deBobeira= () => {
+    
+//   }
 
   render () {
-    return (
-      <div className="App">
-        <button onClick={this.deBobeira}>Botão</button>
-      </div>
-    );
+      return (
+        <div className="caixa-de-lunos">
+            {this.state.alunos.map((aluno, index) => {
+            return (
+                    <div className="aluno" key={index}>
+                        <h1>{aluno.nome}</h1>
+                        <p>{aluno.idade}</p>
+                        <p>{aluno.polo}</p>
+                    </div>
+            )
+            })}
+        </div>
+      )
   }
 }
